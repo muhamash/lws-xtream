@@ -1,6 +1,9 @@
 import Image from "next/image";
+import LangSwitcher from "../components/LangSwitch";
 
-export default function Header() {
+export default function Header ( )
+{
+  // const language = getDictionary( params.lang );
   return (
     <header className="flex justify-between items-center mb-8 mx-auto py-5">
       <div className="flex items-center space-x-8">
@@ -24,6 +27,7 @@ export default function Header() {
         {/* <!-- যেহেতু videos.json এ কোনো Avatar দেয়া নাই, সেহেতু আপনি যেকোনো র‍্যান্ডম Avatar ব্যবহার করতে পারবেন --> */}
         <Image src="/assets/avatar.png" alt="User Avatar" height={100} width={100} className="w-8 h-8 rounded-full" />
       </div>
+      <LangSwitcher/>
     </header>
   )
 };

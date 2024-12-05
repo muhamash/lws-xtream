@@ -1,12 +1,17 @@
+import { getDictionary } from "../utils/dictionary";
 
-export default function Hero() {
+export default async function Hero ( { lang } )
+{
+    const language =  await getDictionary( lang );
+    // console.log(language)
+
     return (
         <main className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
             <div className="lg:col-span-2">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                    PLAY, COMPETE,<br />FOLLOW POPULAR<br />STREAMERS
+                    { language.header.tOne }<br />{language.header.tTwo}<br />{language.header.tThree}
                 </h1>
-                <p className="text-gray-400 mb-8">The best streamers gather here to have a good time, be among us, join us!</p>
+                <p className="text-gray-400 mb-8">{ language.header.title }</p>
             </div>
             <div className="lg:col-span-2">
                 <div className="relative rounded-lg overflow-hidden">
@@ -23,15 +28,15 @@ export default function Hero() {
 
                     <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between p-4">
                         <div className="text-right">
-                            <span className="bg-color-purple text-white px-2 py-1 rounded text-sm">COMING SOON</span>
+                            <span className="bg-color-purple text-white px-2 py-1 rounded text-sm">{language.header.status}</span>
                         </div>
                         <div>
-                            <div className="text-4xl font-bold mb-2">04:03</div>
-                            <p className="text-sm">Broadcast starts in</p>
+                            <div className="text-4xl font-bold mb-2">{language.header.time}</div>
+                            <p className="text-sm">{language.header.broadcast}</p>
                         </div>
                     </div>
                 </div>
-                <p className="mt-2 text-sm text-gray-400">Battle for the castle with Franck Jourdan and Eva703</p>
+                <p className="mt-2 text-sm text-gray-400">{language.header.des}</p>
             </div>
         </main>
     );

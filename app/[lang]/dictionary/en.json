@@ -1,0 +1,22 @@
+{
+    "header": {
+        "tOne": "PLAY, COMPETE,",
+        "tTwo": "FOLLOW POPULAR",
+        "tThree": "STREAMERS",
+        "title": "The best streamers gather here to have a good time, be among us, join us!",
+        "status": "COMING SOON",
+        "time": "04:03",
+        "broadcast": "Broadcast starts in",
+        "des": "Battle for the castle with Franck Jourdan and Eva703"
+    },
+    "home": {
+        "vdoTitle": "Streams of the day",
+        "view": "View all",
+        "emptyText": "No data in there!!"
+    },
+    "share": "Share",
+    "uploadedOn": "Uploaded On",
+    "save": "Save",
+    "followers": "Followers",
+    "follow": "Follow"
+}
