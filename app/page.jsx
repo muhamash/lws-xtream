@@ -1,8 +1,11 @@
+import Hero from "@/components/Hero";
+import VideoContainer from "@/components/VideoContainer";
 
 export default function Home() {
   return (
-    <div className="bg-green-600">
-      helo
-    </div>
+    <>
+      <Hero />
+      <VideoContainer/>
+    </>
   );
 }

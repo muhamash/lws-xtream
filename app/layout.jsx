@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -21,9 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-color-bg text-white font-exo `}
       >
-        {children}
+        <div className="container mx-auto px-4 py-4">
+          <Header/>
+          {children}
+        </div>
       </body>
     </html>
   );
