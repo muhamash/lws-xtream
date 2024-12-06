@@ -15,6 +15,10 @@
         "emptyText": "No data in there!!"
     },
     "vdoPage": {
-        "title": "You may like"
+        "title": "You may like",
+        "subscribe": "Subscribe",
+        "donate" : "Donate",
+        "live": "LIVE",
+        "time": "46:02"
     }
 }

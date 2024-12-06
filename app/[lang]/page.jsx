@@ -5,7 +5,7 @@ export default function Home({params}) {
   return (
     <>
       <Hero lang={ params.lang } />
-      <VideoContainer lang={params.lang}/>
+      <VideoContainer lang={ params.lang } />
     </>
   );
 }

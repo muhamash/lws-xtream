@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import LangSwitcher from "../components/LangSwitch";
 
 export default function Header ( )
@@ -7,7 +8,9 @@ export default function Header ( )
   return (
     <header className="flex justify-between items-center mb-8 mx-auto py-5">
       <div className="flex items-center space-x-8">
-        <Image src="/assets/logo.svg" alt="LWS Xstream Logo" height={100} width={200} className="h-6" />
+        <Link href={"/"}>
+          <Image src="/assets/logo.svg" alt="LWS Xstream Logo" height={100} width={200} className="h-6" />
+        </Link>
         <nav className=" hidden md:flex space-x-6">
           <a href="#" className="text-color-purple font-semibold">TOP STREAMING</a>
           <a href="#" className="text-gray-400 hover:text-white">GAMES</a>

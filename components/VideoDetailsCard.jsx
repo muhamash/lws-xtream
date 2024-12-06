@@ -1,14 +1,22 @@
 import Image from "next/image";
+import { getDictionary } from "../utils/dictionary";
+import { getVidData } from "../utils/getVidData";
 
-export default function VideoDetailsCard() {
+export default async function VideoDetailsCard ( { id, lang } )
+{
+    const videos = await getVidData();
+    const language = await getDictionary(lang)
+    const video = videos?.find( vid => id === vid.videoId );
+    // console.log( video, id );
     return (
         <div className="lg:w-3/4">
             <div className="relative">
-                <iframe src="https://www.youtube.com/embed/hecODa5ZgZM" title="YouTube video player" frameBorder="0"
+                {/* <iframe src="https://www.youtube.com/embed/hecODa5ZgZM" title="YouTube video player" frameBorder="0"
                     className="w-full aspect-video h-[500px]"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-
+                    referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
+                    </iframe> */}
+                <Image src={ `${video?.thumbnail}` } className={'w-full aspect-video h-[500px]'} alt="vdoImg" height={ 300 } width={ 350}/>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                     <div className="flex items-center space-x-4">
                         <button className="bg-color-gray hover:bg-opacity-80 rounded-full p-2">
@@ -21,25 +29,24 @@ export default function VideoDetailsCard() {
                                     d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </button>
-                        <div className="bg-color-purple text-white px-2 py-1 rounded text-sm">LIVE</div>
-                        <span className="text-sm">46:02</span>
+                        <div className="bg-color-purple text-white px-2 py-1 rounded text-sm">{language?.vdoPage.live}</div>
+                        <span className="text-sm">{language.vdoPage.time }</span>
                         <button className="bg-color-purple hover:bg-opacity-80 text-white px-4 py-1 rounded-full text-sm">
-                            Donate
+                            {language.vdoPage.donate}
                         </button>
                     </div>
                 </div>
             </div>
             <h1 className="text-2xl font-bold mt-4">
-                GTA V : BATMAN WAS KIDNAPPED || GTA V Bangla GAMEPLAY || Professor Of Pc Gaming
+                {video?.title}
             </h1>
             <div className="flex items-center space-x-4 mt-2">
-                {/* <!-- যেহেতু videos.json এ কোনো Avatar দেয়া নাই, সেহেতু আপনি যেকোনো র‍্যান্ডম Avatar ব্যবহার করতে পারবেন --> */}
                 <Image src="/assets/avatar.png" alt="Avatar" className="w-10 h-10 rounded-full" width={390} height={250}/>
                 <div>
-                    <p className="font-semibold">Professor Of Pc Gaming</p>
+                    <p className="font-semibold">{ video?.channelTitle }</p>
                 </div>
                 <button className="bg-color-purple hover:bg-opacity-80 text-white px-4 py-1 rounded-full text-sm ml-auto">
-                    Subscribe
+                    {language.vdoPage.subscribe}
                 </button>
             </div>
         </div>

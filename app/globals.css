@@ -61,3 +61,28 @@ body {
   0% { transform: rotate(10deg)}
   100% { transform: rotate(-10deg)}
 }
+
+.loading {
+  position: relative;
+}
+.loading:after {
+  content: '';
+  background: #07887b;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius:5px;
+  transform-origin: -16px -32px;
+  animation: loading 1s linear infinite;
+}
+@keyframes loading {
+   0% , 100% {
+      transform: rotate(-45deg)  translate(-50% , -50%)
+    }
+   50% {
+      transform: rotate(-245deg)  translate(-50% , -50%)
+   }
+}
+  
