@@ -1,3 +1,5 @@
+// 'use client'
+
 import { getDictionary } from "../../../../utils/dictionary";
 
 export default async function VideoNotFound ( { params, id, lang } )
@@ -5,6 +7,7 @@ export default async function VideoNotFound ( { params, id, lang } )
     // console.log(params, id)
     const language = await getDictionary( lang );
     // console.log(language)
+
     return (
         <div className="text-center flex flex-col items-center justify-center gap-5">
             <div className="vidNotFound"></div>

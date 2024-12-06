@@ -1,6 +1,5 @@
-export default function NotFoundPage()
+export default async function NotFoundPage ( { params } )
 {
-    
     return (
         <div className="h-screen flex flex-col gap-5 items-center justify-center">
             <div className="loader">
@@ -10,5 +9,5 @@ export default function NotFoundPage()
                 <p className="text-rose-600 font-mono text-xl">Upps, there is no Content!!</p>
             </div>
         </div>
-    )
-}
+    );
+};

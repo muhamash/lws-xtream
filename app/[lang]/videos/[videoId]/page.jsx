@@ -18,4 +18,4 @@ export default async function VideoPage ( { params } )
       <VideoYouMayLike lang={ params.lang } />
     </div>
   );
-}
+};
