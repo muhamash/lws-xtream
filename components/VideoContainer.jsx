@@ -8,7 +8,7 @@ export default async function VideoContainer ({lang})
 {
     const vidData =  await getVidData();
     const language = await getDictionary( lang );
-    console.log( language );
+    // console.log( language );
     
     return (
         <div className="mt-12">

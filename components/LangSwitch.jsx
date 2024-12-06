@@ -14,24 +14,22 @@ const LangSwitch = () =>
             label: "বাংলা",
             value: "bn",
             language: 'Bangla',
-            selectedBackgroundColor: "#0097e6",
+            selectedBackgroundColor: "#0289d2",
         },
         {
             label: "En",
             value: "en",
             language: 'English',
-            selectedBackgroundColor: "#fbc531"
+            selectedBackgroundColor: "#f5bc21"
         }
     ];
 
     const found = options.find(lang => pathname.includes(lang.value));
-    const [ selectedLanguage, setSelectedLanguage ] = useState( found.value ?? languages[ 0 ] );
-
-    console.log(found)
+    // const [ selectedLanguage, setSelectedLanguage ] = useState( found.value ?? options[ 1 ].value );
 
     const onChange = ( newValue ) =>
     {
-        setSelectedLanguage({...selectedLanguage, value: newValue, language: newValue === 'en' ? 'English' : 'Bangla'});
+        // setSelectedLanguage({...selectedLanguage, value: newValue, language: newValue === 'en' ? 'English' : 'Bangla'});
         router.push( `/${newValue}` );
     };
 

@@ -1,9 +1,12 @@
 import Image from 'next/image';
+import { getDictionary } from '../utils/dictionary';
 
-export default function VideoYouMayLike() {
+export default async function VideoYouMayLike ( { lang } )
+{
+    const language = await getDictionary( lang );
     return (
         <div className="lg:w-1/4">
-            <h2 className="text-xl font-semibold mb-4">You may like</h2>
+            <h2 className="text-xl font-semibold mb-4">{ language.vdoPage.title}</h2>
             <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                     <Image src="https://i.ytimg.com/vi/9kjwMTj8ZD0/hqdefault.jpg" height={ 100 } width={ 140 } alt="Fallout Shelter PC Thumbnail"

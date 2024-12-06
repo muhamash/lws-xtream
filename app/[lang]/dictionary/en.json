@@ -14,9 +14,7 @@
         "view": "View all",
         "emptyText": "No data in there!!"
     },
-    "share": "Share",
-    "uploadedOn": "Uploaded On",
-    "save": "Save",
-    "followers": "Followers",
-    "follow": "Follow"
+    "vdoPage": {
+        "title": "You may like"
+    }
 }
