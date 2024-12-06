@@ -59,15 +59,15 @@ export async function PATCH ( request, context )
         }
 
         const updatedVid = await getUpdateVid( dataId, { title, description } );
-
-        if (!updatedData) {
+        // console.log(updatedVid)
+        if (!updatedVid) {
             return new Response( JSON.stringify( { error: "Video not found" } ), {
                 status: 404,
                 headers: { "Content-Type": "application/json" },
             } );
         }
 
-        return Response( JSON.stringify( updatedData ), {
+        return new Response( JSON.stringify( updatedVid ), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         } );
