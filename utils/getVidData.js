@@ -35,3 +35,36 @@ export const getVidById = async ( id ) =>
     throw error;
   }
 }
+
+export const getUpdateVid = async ( id, updatedData ) =>
+{
+  try
+  {
+    const data = await getVidById( id );
+    // console.log(data)
+    if ( !data )
+    {
+      return null;
+    }
+
+    if ( updatedData.title )
+    {
+      data.title = updatedData.title
+    }
+
+    if ( updatedData.description )
+    {
+      data.description = updatedData.description
+    }
+
+    const database = await videosData.vidData();
+    // console.log(database)
+    const index = database.findIndex( ( vid ) => vid.videoId === id );
+    database[ index ] = data;
+    console.log(data)
+    return data;
+  } catch ( error )
+  {
+    console.error( "Unable to update!!", error );
+  }
+};
