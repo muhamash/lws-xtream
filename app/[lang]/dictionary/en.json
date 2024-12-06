@@ -17,8 +17,13 @@
     "vdoPage": {
         "title": "You may like",
         "subscribe": "Subscribe",
-        "donate" : "Donate",
+        "donate": "Donate",
         "live": "LIVE",
         "time": "46:02"
+    },
+    "vidNotFound": {
+        "title": "Video Not Found",
+        "textOne": "This video with",
+        "textTwo": "id was not found!"
     }
 }

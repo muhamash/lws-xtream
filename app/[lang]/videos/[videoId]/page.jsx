@@ -9,7 +9,7 @@ export default async function VideoPage ( { params } )
   const video = await getVidById(params.videoId);
   if(!video){
         // return notFound();
-        return <VideoNotFound id={ params.videoId } />
+    return <VideoNotFound id={ params.videoId } lang={ params.lang } />
     }
     // console.log(params);
   return (
