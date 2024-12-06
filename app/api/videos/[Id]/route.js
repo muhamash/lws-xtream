@@ -1,4 +1,4 @@
-import { getUpdateVid, getVidById } from "../../../../utils/getVidData";
+import { deleteVidById, getVidById, patchUpdateVid } from "../../../../utils/getVidData";
 
 export async function GET(request, context) {
     try {
@@ -40,7 +40,7 @@ export async function PATCH ( request, context )
         // console.log( request, context );
         const dataId = context.params.Id;
         const body = await request.json();
-        console.log(body, dataId)
+        // console.log(body, dataId)
         const { title, description } = body;
 
         if ( !dataId )
@@ -58,7 +58,7 @@ export async function PATCH ( request, context )
             } );
         }
 
-        const updatedVid = await getUpdateVid( dataId, { title, description } );
+        const updatedVid = await patchUpdateVid( dataId, { title, description } );
         // console.log(updatedVid)
         if (!updatedVid) {
             return new Response( JSON.stringify( { error: "Video not found" } ), {
@@ -80,4 +80,40 @@ export async function PATCH ( request, context )
         });
     }
 
+};
+
+export async function DELETE(request, context) {
+    try {
+        const dataId = context.params.Id;
+
+        if (!dataId) {
+            return new Response( JSON.stringify( { error: "ID parameter is required" } ), {
+                status: 400,
+                headers: { "Content-Type": "application/json" },
+            } );
+        }
+
+        const isDeleted = await deleteVidById(dataId);
+
+        if (!isDeleted) {
+            return new Response( JSON.stringify( { error: "Video not found" } ), {
+                status: 404,
+                headers: { "Content-Type": "application/json" },
+            } );
+        }
+
+        return new Response(JSON.stringify("ok count 1(deleted)"), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
+    } catch (error) {
+        // console.error("Error deleting video:", error);
+        return new Response(
+            JSON.stringify({ error: `Failed to delete video data; ${error}` }),
+            {
+                status: 500,
+                headers: { "Content-Type": "application/json" },
+            }
+        );
+    }
 };
