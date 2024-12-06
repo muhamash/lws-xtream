@@ -85,4 +85,35 @@ body {
       transform: rotate(-245deg)  translate(-50% , -50%)
    }
 }
-  
+
+.vidNotFound {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(to right, #ece3e3 20%, #0000 21%);
+    background-repeat: repeat-x;
+    background-size: 36px 8px;
+    background-position: 9px bottom;
+    animation: moveX 0.5s linear infinite;
+  }
+  .vidNotFound::before  {
+    content: '';
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 2px;
+    background-color: #e70e0e;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50% );
+    animation: idNotFound 0.5s linear infinite;
+}
+
+@keyframes moveX {
+  0%, 25%{    background-position: 10px bottom }
+  75% , 100% {background-position: -30px bottom;}
+}
+@keyframes idNotFound {
+  0%, 25% { transform:translate(-50% , -50% ) rotate(0deg)}
+  75%,  100% { transform:translate(-55% , -55% ) rotate(90deg)}
+}

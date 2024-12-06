@@ -14,3 +14,24 @@ export const getVidData = async () => {
     throw error;
   }
 };
+
+export const getVidById = async ( id ) =>
+{
+  try
+  {
+    const data = await videosData.vidData();
+    const findData = data?.find( d => d.videoId === id );
+    if ( findData )
+    {
+      return findData;
+    }
+    else
+    {
+      return null
+    }
+  } catch ( error )
+  {
+    console.error('Video not found!', error);
+    throw error;
+  }
+}

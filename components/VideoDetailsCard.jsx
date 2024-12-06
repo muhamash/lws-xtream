@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { getDictionary } from "../utils/dictionary";
-import { getVidData } from "../utils/getVidData";
 
-export default async function VideoDetailsCard ( { id, lang } )
+export default async function VideoDetailsCard ( { video, lang } )
 {
-    const videos = await getVidData();
     const language = await getDictionary(lang)
-    const video = videos?.find( vid => id === vid.videoId );
+    // const video = videos?.find( vid => id === vid.videoId );
     // console.log( video, id );
+
     return (
         <div className="lg:w-3/4">
             <div className="relative">
