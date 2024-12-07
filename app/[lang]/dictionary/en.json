@@ -25,5 +25,8 @@
         "title": "Video Not Found",
         "textOne": "This video with",
         "textTwo": "id was not found!"
+    },
+    "notFound": {
+        "title": "Upps, there is no Content!!"
     }
 }

@@ -61,7 +61,7 @@ export const patchUpdateVid = async ( id, updatedData ) =>
     // console.log(database)
     const index = database.findIndex( ( vid ) => vid.videoId === id );
     database[ index ] = data;
-    console.log( data )
+    // console.log( data )
     return data;
   } catch ( error )
   {
