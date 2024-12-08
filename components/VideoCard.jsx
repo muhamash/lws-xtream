@@ -13,6 +13,7 @@ export default function VideoCard ( { data, params } )
         // console.log( params, currentLanguage.value );
         router.push(`${currentLanguage.value}/videos/${data.videoId}`)
     }
+    
     return (
         <div
             onClick={handleVdoCard}

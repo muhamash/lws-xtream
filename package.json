@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formatjs/intl": "^3.0.1",
+    "date-fns": "^4.1.0",
     "negotiator": "^1.0.0",
     "next": "14.2.18",
     "react": "^18",

@@ -4,19 +4,16 @@ import { getDictionary } from "../utils/dictionary";
 export default async function VideoDetailsCard ( { video, lang } )
 {
     const language = await getDictionary(lang)
-    // const video = videos?.find( vid => id === vid.videoId );
-    // console.log( video, id );
 
     return (
         <div className="lg:w-3/4">
-            <div className="relative">
-                {/* <iframe src="https://www.youtube.com/embed/hecODa5ZgZM" title="YouTube video player" frameBorder="0"
+            <div className="relative group rounded-lg overflow-hidden">
+                <iframe src={`https://www.youtube.com/embed/${video.videoId}`} title="YouTube video player" frameBorder="0"
                     className="w-full aspect-video h-[500px]"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
-                    </iframe> */}
-                <Image src={ `${video?.thumbnail}` } className={'w-full aspect-video h-[500px]'} alt="vdoImg" height={ 300 } width={ 350}/>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    </iframe>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 ">
                     <div className="flex items-center space-x-4">
                         <button className="bg-color-gray hover:bg-opacity-80 rounded-full p-2">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"

@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import VideDetailsCard from '../../../../components/VideoDetailsCard';
 import VideoYouMayLike from '../../../../components/VideoYouMayLike';
 import { getVidById } from '../../../../utils/getVidData';
-import VideoNotFound from '../[videoId]/not-found';
 
 export default async function VideoPage ( { params } )
 {
@@ -16,7 +15,7 @@ export default async function VideoPage ( { params } )
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       <VideDetailsCard video={ video } lang={ params.lang } />
-      <VideoYouMayLike lang={ params.lang } />
+      <VideoYouMayLike lang={ params.lang } id={params.videoId} />
     </div>
   );
 };
