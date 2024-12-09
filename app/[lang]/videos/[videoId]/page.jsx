@@ -11,7 +11,7 @@ export default async function VideoPage ( { params } )
         return notFound();
     // return <VideoNotFound id={ params.videoId } lang={ params.lang } />
     }
-    // console.log(params);
+    console.log("page route");
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       <VideDetailsCard video={ video } lang={ params.lang } />

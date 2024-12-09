@@ -5,7 +5,9 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLanguage } from '../hooks/useLanguage';
 
-export default function VidMayLikeCard({data}) {
+export default function VidMayLikeCard ( { data } )
+{
+    // console.log(data)
     const formattedTime = format( new Date( data.publishTime ), "MMMM d, yyyy, h:mm a" );
     const { currentLanguage } = useLanguage();
     const router = useRouter();
