@@ -28,9 +28,14 @@ export const useLanguage = () =>
             newSegments.unshift( newLang );
         }
 
-        const newHomePath = `/${newLang}`;
+        // const newHomePath = `/${newLang}/`;
 
-        router.push( newHomePath );
+        // router.push( newHomePath );
+        const newPath = `/${newSegments.join('/')}`;
+
+        // Redirect to the updated path with the new language
+        // router.push(newPath);
+        window.location.href = newPath;
     };
 
     return { currentLanguage, updateLanguage, options };
