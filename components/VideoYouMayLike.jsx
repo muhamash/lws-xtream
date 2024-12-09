@@ -9,7 +9,7 @@ export default async function VideoYouMayLike ( { lang, id } )
 {
     const language = await getDictionary( lang );
     const vidData = await getVidData();
-    const youMayLike = vidData?.filter( ( vid ) => vid.videoId !== id ).slice( 0, 4 );
+    const youMayLike = vidData?.filter( ( vid ) => vid.videoId !== id ).slice( 0, 3 );
     
     return (
         <div className="lg:w-1/4">

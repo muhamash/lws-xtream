@@ -1,4 +1,3 @@
-// 'use client'
 import { notFound } from 'next/navigation';
 import Modal from '../../../../../components/Modal';
 import VideDetailsCard from '../../../../../components/VideoDetailsCard';
@@ -12,7 +11,8 @@ export default async function VideoPage ( { params } )
         return notFound();
     // return <VideoNotFound id={ params.videoId } lang={ params.lang } />
     }
-    console.log("modal route");
+    console.log( "modal route" );
+    
     return (
         <Modal>
             <div className="flex flex-col lg:flex-row gap-6">

@@ -1,15 +1,17 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Modal({ children }) {
+    const [isVisible, setIsVisible] = useState(true);
     const overlay = useRef(null);
     const wrapper = useRef(null);
-    const router = useRouter();
+    const router = useRouter();  
 
     const onDismiss = useCallback(() => {
-        router.back();
+        setIsVisible(false); 
+        router.push('/');  
     }, [router]);
 
     const onClick = useCallback(
@@ -33,16 +35,28 @@ export default function Modal({ children }) {
         return () => document.removeEventListener("keydown", onKeyDown);
     }, [onKeyDown]);
 
+    const handleClose = useCallback(() => {
+        setIsVisible(false); 
+        router.push('/');  
+    }, [router]);
+
+    if (!isVisible) return null;  
     return (
         <div
             ref={overlay}
-            className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/60 p-10"
+            className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/50 p-5 backdrop-blur-sm w-screen"
             onClick={onClick}
         >
             <div
                 ref={wrapper}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-10/12 md:w-8/12 lg:w-2/5 p-6"
+                className="w-screen mx-auto sm:w-10/12 md:w-8/12 p-6"
             >
+                <button
+                    onClick={handleClose}
+                    className="text-red-700 font-extrabold font-lg py-2 px-4 bg-white rounded-md mb-2"
+                >
+                    X
+                </button>
                 {children}
             </div>
         </div>
