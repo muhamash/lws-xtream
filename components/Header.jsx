@@ -2,12 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LangSwitcher from "../components/LangSwitch";
+import { useLanguage } from "../hooks/useLanguage";
+import { getDictionary } from "../utils/dictionary";
 
 export default function Header() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false); 
+  const [ isDrawerOpen, setIsDrawerOpen ] = useState( false );
+  const [ language, setLanguage ] = useState( null );
+  const { currentLanguage } = useLanguage();
 
+  useEffect( () =>
+  {
+    const fetchLanguage = async () =>
+    {
+      try
+      {
+        const langData = await getDictionary( currentLanguage.value );
+        setLanguage( langData );
+      } catch ( error )
+      {
+        console.error( "Failed to fetch dictionary:", error );
+      }
+    };
+
+    fetchLanguage();
+  }, [ currentLanguage.value ] );
+  
   const toggleDrawer = () => {
     setIsDrawerOpen((prev) => !prev);
   };
@@ -30,14 +51,14 @@ export default function Header() {
         </Link>
         <nav className="hidden md:flex items-center space-x-6">
           <a href="#" className="text-color-purple font-semibold">
-            TOP STREAMING
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            GAMES
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            TEAMS
-          </a>
+              {language?.nav.top}
+            </a>
+            <a href="#" className="text-gray-400 hover:text-gray-600">
+             {language?.nav.games}
+            </a>
+            <a href="#" className="text-gray-400 hover:text-gray-600">
+              {language?.nav.teams}
+            </a>
           {/* Search Bar and User Avatar */}
           <div className="flex items-center space-x-4">
             <div className="relative">
@@ -120,13 +141,13 @@ export default function Header() {
 
           <nav className="flex flex-col space-y-4">
             <a href="#" className="text-color-purple font-semibold">
-              TOP STREAMING
+              {language?.nav.top}
             </a>
             <a href="#" className="text-gray-400 hover:text-gray-600">
-              GAMES
+             {language?.nav.games}
             </a>
             <a href="#" className="text-gray-400 hover:text-gray-600">
-              TEAMS
+              {language?.nav.teams}
             </a>
             {/* Search Bar and User Avatar */}
             <div className="flex items-center space-x-4">

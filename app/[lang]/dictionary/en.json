@@ -28,5 +28,10 @@
     },
     "notFound": {
         "title": "Upps, there is no Content!!"
+    },
+    "nav":{
+        "top": "TOP STREAMING",
+        "games": "GAMES",
+        "teams": "TEAMS"
     }
 }

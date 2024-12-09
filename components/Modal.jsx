@@ -37,7 +37,7 @@ export default function Modal({ children }) {
 
     const handleClose = useCallback(() => {
         setIsVisible( false );
-        // window.location.href = '/'; 
+        window.location.href = '/'; 
     }, []);
 
     if (!isVisible) return null;
@@ -50,7 +50,7 @@ export default function Modal({ children }) {
         >
             <div
                 ref={wrapper}
-                className="mx-auto w-[90%] md:w-8/12 p-3 md:p-6 h-screen overflow-y-scroll"
+                className="mx-auto w-[90%] md:w-8/12 p-3 md:p-6 h-screen overflow-y-scroll scrollbar-hidden"
             >
                 <button
                     onClick={handleClose}
