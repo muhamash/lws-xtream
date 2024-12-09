@@ -10,8 +10,8 @@ export default function Modal({ children }) {
     const router = useRouter();  
 
     const onDismiss = useCallback(() => {
-        setIsVisible(false); 
-        router.push('/');  
+        setIsVisible(false);
+        router.push('/');
     }, [router]);
 
     const onClick = useCallback(
@@ -35,14 +35,13 @@ export default function Modal({ children }) {
         return () => document.removeEventListener("keydown", onKeyDown);
     }, [onKeyDown]);
 
-    const handleClose = useCallback( () =>
-    {
+    const handleClose = useCallback(() => {
         setIsVisible( false );
-        window.location.href = '/';
-    }, [] );
+        // window.location.href = '/'; 
+    }, []);
 
-    if ( !isVisible ) return null;  
-    
+    if (!isVisible) return null;
+
     return (
         <div
             ref={overlay}
@@ -51,7 +50,7 @@ export default function Modal({ children }) {
         >
             <div
                 ref={wrapper}
-                className="mx-auto w-[90%] md:w-8/12 p-2 md:p-6"
+                className="mx-auto w-[90%] md:w-8/12 p-3 md:p-6 h-screen overflow-y-scroll"
             >
                 <button
                     onClick={handleClose}
