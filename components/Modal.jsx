@@ -35,21 +35,23 @@ export default function Modal({ children }) {
         return () => document.removeEventListener("keydown", onKeyDown);
     }, [onKeyDown]);
 
-    const handleClose = useCallback(() => {
-        setIsVisible(false); 
-        router.push('/');  
-    }, [router]);
+    const handleClose = useCallback( () =>
+    {
+        setIsVisible( false );
+        window.location.href = '/';
+    }, [] );
 
-    if (!isVisible) return null;  
+    if ( !isVisible ) return null;  
+    
     return (
         <div
             ref={overlay}
-            className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/50 p-5 backdrop-blur-sm w-screen"
+            className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/50 p-2 md:p-5 backdrop-blur-sm w-screen"
             onClick={onClick}
         >
             <div
                 ref={wrapper}
-                className="w-screen mx-auto sm:w-10/12 md:w-8/12 p-6"
+                className="mx-auto w-[90%] md:w-8/12 p-2 md:p-6"
             >
                 <button
                     onClick={handleClose}
